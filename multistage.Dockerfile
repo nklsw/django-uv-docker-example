@@ -29,4 +29,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 WORKDIR /app/src
 
 # Run the Django application by default
-CMD ["granian", "--interface", "wsgi", "django_uv_docker_example.wsgi:application"]
+CMD ["granian", "--interface", "wsgi", "django_uv_docker_example.wsgi:application", "--host", "0.0.0.0", "--port", "8000"]
