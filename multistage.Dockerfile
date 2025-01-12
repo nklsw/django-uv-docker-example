@@ -26,5 +26,7 @@ COPY --from=builder --chown=app:app /app /app
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-# Run the FastAPI application by default
-CMD ["fastapi", "dev", "--host", "0.0.0.0", "/app/src/uv_docker_example"]
+WORKDIR /app/src
+
+# Run the Django application by default
+CMD ["granian", "--interface", "wsgi", "django_uv_docker_example.wsgi:application"]
